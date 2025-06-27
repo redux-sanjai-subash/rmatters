@@ -51,6 +51,7 @@ for service, count in alerts_per_service.items():
     row = table.add_row().cells
     row[0].text = service
     row[1].text = str(count)
+
 doc.add_picture(chart_filename, width=Inches(5.5))
 
 doc.add_heading('3. Most Frequently Triggered Alerts', level=1)
@@ -58,13 +59,14 @@ table = doc.add_table(rows=1, cols=3)
 table.style = 'Light Grid'
 table.rows[0].cells[0].text = 'Alert Title'
 table.rows[0].cells[1].text = 'Count'
-table.rows[0].cells[2].text = 'Sample Alert ID'
+table.rows[0].cells[2].text = 'Sample Alert URL'
 for title, count in top_alerts.items():
     last_id = df[df['title'] == title]['id'].iloc[-1]
+    incident_url = f"https://app.squadcast.com/incident/{last_id}"
     row = table.add_row().cells
     row[0].text = title
     row[1].text = str(count)
-    row[2].text = last_id
+    row[2].text = incident_url
 
 doc.add_heading('4. Alerts with the Highest Time to Resolve', level=1)
 table = doc.add_table(rows=1, cols=4)
