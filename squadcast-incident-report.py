@@ -90,4 +90,4 @@ for _, row in long_ttr_alerts.iterrows():
 
 # Save file
 doc.save("squadcast-incident-review-report.docx")
-print("[✔] Report generated: squadcast-incident-review-report.docx")
+print("Report generated: squadcast-incident-review-report.docx")
