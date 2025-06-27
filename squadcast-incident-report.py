@@ -89,5 +89,5 @@ for _, row in long_ttr_alerts.iterrows():
     cells[3].text = row['id']
 
 # Save file
-doc.save("incident_review_report_with_ids.docx")
-print("✅ Word report generated: incident_review_report_with_ids.docx")
+doc.save("squadcast-incident-review-report.docx")
+print("[✔] Report generated: squadcast-incident-review-report.docx")
